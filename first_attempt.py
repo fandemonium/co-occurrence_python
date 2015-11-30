@@ -30,5 +30,6 @@ df_corr_matrix["otus"]=df_corr_matrix.index
 df_melt=pandas.melt(df_corr_matrix,id_vars="otus")
 # remove NAs or NaNs which are result of non-existent otus (all 0 values)
 df_melt=df_melt[numpy.isfinite(df_melt.value)]
+df_melt['p.value']=spearmanp(df_melt.value,df_sub.shape[0])
 #write the file
 df_melt.to_csv(path_to_write,index=False)
