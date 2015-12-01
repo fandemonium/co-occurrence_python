@@ -24,7 +24,7 @@ df=pandas.read_table(path_of_file,index_col=False)
 df.rename(columns={old_name : 'splitter'}, inplace=True)
 #df=pandas.read_table("~/Desktop/temp_df.txt",index_col=False)
 splitters=numpy.unique(df.splitter)
-df_final=pandas.DataFrame(columns=["otus","variable","value","p-value","splitter"])
+df_final=pandas.DataFrame(columns=["otus","variable","value","p.value","splitter"])
 
 for numb in range(0,(len(splitters))):
     df_sub=df.loc[(df.splitter==splitters[numb])]
