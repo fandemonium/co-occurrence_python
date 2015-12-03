@@ -42,6 +42,6 @@ for numb in range(0,(len(splitters))):
 
     df_melt_positive['splitter']=splitters[numb]
     df_final=df_final.append(df_melt_positive,ignore_index=True)
-
+    df_final.to_csv((path_to_write+splitters[numb]+"final_co-occurrence_results.csv"),index=False)
 #write the file
-df_final.to_csv(path_to_write,index=False)
+# df_final.to_csv(path_to_write,index=False)
