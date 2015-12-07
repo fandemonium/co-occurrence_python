@@ -9,6 +9,7 @@ from scipy import stats
 from scipy.stats import t
 from rpy2.robjects.packages import importr
 from rpy2.robjects.vectors import FloatVector
+stats = importr('stats')
 # arguments being passed
 path_of_file=sys.argv[1]
 last_metadata_column=int(sys.argv[2])
