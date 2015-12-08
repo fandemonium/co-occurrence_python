@@ -39,10 +39,10 @@ for numb in range(0,(len(splitters))):
     df_melt=df_melt[numpy.isfinite(df_melt.value)]
     df_melt['pvalue']=spearmanp(df_melt.value,df_sub.shape[0])
     df_melt['fdr'] = stats.p_adjust(FloatVector(df_melt.pvalue), method = 'fdr')
-    df_melt_positive=df_melt[df_melt.value > 0 & df_melt.fdr < 0.05]
-
-    df_melt_positive['splitter']=splitters[numb]
-    df_final=df_final.append(df_melt_positive,ignore_index=True)
+    df_melt_positive= df_melt[df_melt['value'] > 0]
+    df_melt_corrected = df_melt_positive[df_melt_positive['fdr'] < 0.05 ]
+    df_melt_corrected['splitter']=splitters[numb]
+    df_final=df_final.append(df_melt_corrected,ignore_index=True)
     df_final.to_csv((path_to_write+splitters[numb]+"final_co-occurrence_results.csv"),index=False)
 #write the file
 # df_final.to_csv(path_to_write,index=False)
