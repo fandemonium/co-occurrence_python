@@ -30,7 +30,7 @@ df_final=pandas.DataFrame(columns=["otus","variable","value","p.value","splitter
 
 for numb in range(0,(len(splitters))):
     df_sub=df.loc[(df.splitter==splitters[numb])]
-    df_data_only=df.drop(df_sub.columns[[range(0,last_metadata_column)]],axis=1)
+    df_data_only=df_sub.drop(df_sub.columns[[range(0,last_metadata_column)]],axis=1)
     df_corr_matrix=df_data_only.corr(method="spearman")
     df_corr_matrix["otus"]=df_corr_matrix.index
     #melt dataframe but maintain indices now called otus
