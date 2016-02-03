@@ -43,6 +43,6 @@ for numb in range(0,(len(splitters))):
     df_melt_corrected = df_melt_positive[df_melt_positive['fdr'] < 0.05 ]
     df_melt_corrected['splitter']=splitters[numb]
     df_final=df_final.append(df_melt_corrected,ignore_index=True)
-    df_final.to_csv((path_to_write+splitters[numb]+"final_co-occurrence_results.csv"),index=False)
+    df_final.to_csv((path_to_write+str(splitters[numb])+"final_co-occurrence_results.csv"),index=False)
 #write the file
 # df_final.to_csv(path_to_write,index=False)
